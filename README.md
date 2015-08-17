@@ -8,8 +8,11 @@ This application relies on the number theory library (NTL located st http://www.
 The order of the group need not be cyclic for there to be orbits associated to the group action of multiplication; however, the greatest common deniminator (GCD) must be one. For example, 399 is not a prime (ie 399=133*3), but there are orbits associated with the multiplier 101 (but not 102 as 102 is divisible by 3).
 
   ==Compiling and running==
+  
   1) Ensure you have a working version of NTL installed on your device. I was working with NTL 6.2.1, presumably it will work for many versions, but I have not personally checked all of the major ones. I use Linux, but I can't see there being issues on any operating system able to install NTL.
+  
   2) I compile using the terminal with --->         g++ orbits.cpp -o orbits -lntl -lm
   
   ==Known Issues==
+  
   1) the ZZ object allows the user to create values larger than integers. This is great in theory, but may take a long time for calculations. The device will most likely crash before a result can be obtained.
