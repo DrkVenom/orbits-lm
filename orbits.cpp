@@ -5,6 +5,8 @@
 // uses "NTL: A Library for doing Number Theory", packages and readmes can be located at http://www.shoup.net/ntl/
 // the code presented here is written with NTL 6.2.1 in mind
 
+#include <ctime>
+#include <iostream>
 #include <stdio.h>
 #include <vector>
 #include <NTL/ZZ.h>
@@ -14,6 +16,10 @@ NTL_CLIENT
 
 int main()
 {
+	//initialize value for timing
+	std::clock_t    s_time;
+	s_time = std::clock();
+	
 	//initialize the modulus to be used
 	ZZ m_mod;
 	
@@ -117,4 +123,5 @@ int main()
 	    }
 	    cout << "} \n \n";
 	}
+	std::cout << "Time: " << (std::clock() - s_time) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
 }
