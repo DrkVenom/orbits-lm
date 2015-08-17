@@ -45,7 +45,7 @@ int main()
 	//loop to ensure that the program can continue using a proper multiplier
 	while (pass==false)
 	{
-		cout << "We're sorry but the gcd of the modulus, " << m_mod << ", and the multiplier, "<< t_mult << ", is not 1. Please choose a different multiplier such that their gcd is 1. \n";
+		cout << "We're sorry but the gcd of the modulus " << m_mod << " and the multiplier "<< t_mult << " is not 1 (it is " << GCD(m_mod, t_mult) << ").\nPlease choose a different multiplier such that their gcd is 1. \n";
 		cin >> t_mult_p;
 		t_mult = rep(t_mult_p);
 		cout << "\n";
