@@ -7,7 +7,6 @@
 
 #include <ctime>
 #include <iostream>
-#include <stdio.h>
 #include <vector>
 #include <NTL/ZZ.h>
 #include <NTL/ZZ_p.h>
@@ -23,9 +22,9 @@ int main()
 	//initialize the modulus to be used
 	ZZ m_mod;
 	
-	cout << "Please enter the value of the modulus: \n";
-	cin >> m_mod;
-	cout << "\n";
+	std::cout << "Please enter the value of the modulus: \n";
+	std::cin >> m_mod;
+	std::cout << "\n";
 	
 	//initialize (mod m_mod)
 	ZZ_p::init(m_mod);
@@ -33,9 +32,9 @@ int main()
 	//initialize the multiplier to be used
 	ZZ_p t_mult_p;
 	
-	cout << "Please enter the value of the multiplier: \n";
-	cin >> t_mult_p;
-	cout << "\n";
+	std::cout << "Please enter the value of the multiplier: \n";
+	std::cin >> t_mult_p;
+	std::cout << "\n";
 	
 	//t_mult is created in class ZZ_p, but we need it as ZZ to perform GCD checks, thus we create a representative t_mult_p of class ZZ to hold the value of t_mult but in the correct ZZ class
 	ZZ t_mult;
@@ -51,10 +50,10 @@ int main()
 	//loop to ensure that the program can continue using a proper multiplier
 	while (pass==false)
 	{
-		cout << "We're sorry but the gcd of the modulus " << m_mod << " and the multiplier "<< t_mult << " is not 1 (it is " << GCD(m_mod, t_mult) << ").\nPlease choose a different multiplier such that their gcd is 1. \n";
-		cin >> t_mult_p;
+		std::cout << "We're sorry but the gcd of the modulus " << m_mod << " and the multiplier "<< t_mult << " is not 1 (it is " << GCD(m_mod, t_mult) << ").\nPlease choose a different multiplier such that their gcd is 1. \n";
+		std::cin >> t_mult_p;
 		t_mult = rep(t_mult_p);
-		cout << "\n";
+		std::cout << "\n";
 		if (GCD(m_mod, t_mult) == 1)
 		{
 			//exit the loop
@@ -112,16 +111,16 @@ int main()
 		}
 	}
 	
-	cout << "There are " << orbits.size() << " distinct orbits of the multiplier " << t_mult_p << " in Z_" << m_mod << "\n";
+	std::cout << "There are " << orbits.size() << " distinct orbits of the multiplier " << t_mult_p << " in Z_" << m_mod << "\n";
 	//print out the orbits
 	for (int x=0; x<orbits.size(); x++)
 	{
-	    cout << "|[" << orbits[x][0] << "]| = " << orbits[x].size() << "\t { ";
+	    std::cout << "|[" << orbits[x][0] << "]| = " << orbits[x].size() << "\t { ";
 	    for (int y=0; y<orbits[x].size(); y++)
 	    {
-			cout << orbits[x][y] << " ";
+			std::cout << orbits[x][y] << " ";
 	    }
-	    cout << "} \n \n";
+	    std::cout << "} \n \n";
 	}
 	std::cout << "Time: " << (std::clock() - s_time) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
 }
